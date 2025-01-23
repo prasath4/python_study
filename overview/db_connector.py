@@ -14,7 +14,7 @@ result=mycursor.fetchall()
 for i in result:
     print(i)
 
-
+"""-------------------------------------------------------------------------------------------------"""
 # import mysql.connector
 
 # try:
@@ -38,6 +38,9 @@ for i in result:
 #         connection.close()
 #         print("MySQL connection is closed")
 
+
+
+"""-------------------------------------------------------------------------------------------------"""
 
 
                 #THIS IS THE STRUCTURE OF MYSQL CONNECTIONS BY CHATgpt..
@@ -105,3 +108,7 @@ except mysql.connector.Error as err:
 cursor.close()
 db.close()
 print("Connection closed.")
+
+
+
+"""-------------------------------------------------------------------------------------------------"""
