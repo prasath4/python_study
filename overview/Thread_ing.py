@@ -146,3 +146,76 @@ Using with ensures that the ThreadPoolExecutor is properly initialized and
 shutdown when the block of code completes execution, preventing resource leaks and improving code readability.'''
 
 
+
+
+
+
+# multi threading using lock method
+
+counter = 0
+
+lock=threading.Lock()
+
+def increment():
+    global counter
+    for _ in range(5):
+        with lock:
+            local_counter = counter
+            time.sleep(0.5)
+            local_counter+=1
+            counter = local_counter
+            print(f'counted update is {counter}')
+
+
+# Creating multiple threads
+thread1 = threading.Thread(target=increment)
+thread2 = threading.Thread(target=increment)
+
+# Start the threads
+thread1.start()
+thread2.start()
+
+# Wait for both threads to complete
+thread1.join()
+thread2.join()
+
+print(f"Final counter value: {counter}")
+
+
+
+'''import threading
+import time
+
+# Global variable
+counter = 0
+
+# Creating a Reentrant Lock
+rlock = threading.RLock()
+
+def increment():
+    global counter
+    with rlock:  # First lock acquisition
+        for _ in range(3):
+            nested_increment()  # Calling a function that acquires the lock again
+            time.sleep(0.1)
+
+def nested_increment():
+    global counter
+    with rlock:  # Second lock acquisition (same thread)
+        counter += 1
+        print(f"Counter updated to: {counter}")
+
+# Creating multiple threads
+thread1 = threading.Thread(target=increment)
+thread2 = threading.Thread(target=increment)
+
+# Start the threads
+thread1.start()
+thread2.start()
+
+# Wait for both threads to complete
+thread1.join()
+thread2.join()
+
+print(f"Final counter value: {counter}")
+'''
