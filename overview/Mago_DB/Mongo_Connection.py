@@ -4,8 +4,8 @@ import pymongo
 import urllib.parse
 
 # Encode the username and password properly
-username = urllib.parse.quote_plus("prasath")
-password = urllib.parse.quote_plus("12345")  # If your password contains @, :, or other special characters, they must be encoded.
+username = urllib.parse.quote_plus("Admin")
+password = urllib.parse.quote_plus("Admin@01")  # If your password contains @, :, or other special characters, they must be encoded.
 
 # Correct MongoDB connection string
 MONGODB_URL = f'mongodb+srv://{username}:{password}@pythontomangodb.dwjv2.mongodb.net/?retryWrites=true&w=majority'
